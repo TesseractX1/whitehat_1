@@ -17,6 +17,7 @@ public class CameraScript : MonoBehaviour {
 			transform.Translate(-Input.GetAxis("Mouse X")*2*Time.fixedDeltaTime*speed*camera.orthographicSize,-Input.GetAxis("Mouse Y")*2*Time.fixedDeltaTime*speed*camera.orthographicSize,0);
 		}
 		camera.orthographicSize-=Input.GetAxis("Mouse ScrollWheel")*camera.orthographicSize;
+		camera.orthographicSize=Mathf.Clamp(camera.orthographicSize,5,20);
 		//camera.orthographicSize = Mathf.Clamp(camera.orthographicSize,20,5);
 	}
 }
