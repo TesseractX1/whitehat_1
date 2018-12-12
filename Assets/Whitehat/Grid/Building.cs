@@ -31,7 +31,7 @@
                 {
                     continue;
                 }
-                if (hit.collider.gameObject.GetComponent<Hexagon>() && !hit.collider.gameObject.GetComponent<Hexagon>().Visible)
+                if (hit.collider.gameObject.GetComponent<Hexagon>())
                 {
                     lightenedUp.Add(hit.collider.gameObject.GetComponent<Hexagon>());
                     hit.collider.gameObject.GetComponent<Hexagon>().AddLightingBuilding(this);
