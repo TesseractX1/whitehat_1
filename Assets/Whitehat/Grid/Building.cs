@@ -7,6 +7,8 @@
     public class Building : MonoBehaviour
     {
         public Hexagon hex;
+        [SerializeField] private int initialRange;
+
         [SerializeField] private float distance = 2.5f;
 
         private List<Hexagon> lightenedUp = new List<Hexagon>();
@@ -14,7 +16,7 @@
         // Use this for initialization
         void Start()
         {
-            LightUp(2);
+            LightUp(initialRange);
         }
 
         // Update is called once per frame
@@ -25,9 +27,9 @@
 
         public void LightUp(int range)
         {
-            foreach (RaycastHit hit in Physics.SphereCastAll(transform.position, distance * range, Vector3.one))
+            foreach (RaycastHit hit in Physics.SphereCastAll(transform.position, distance * (range+1), Vector3.one))
             {
-                if (Vector3.Distance(hit.collider.transform.position, transform.position) >= distance * range)
+                if (Vector3.Distance(hit.collider.transform.position, transform.position) >= distance * (range+1))
                 {
                     continue;
                 }
